@@ -148,3 +148,19 @@ Output
     }
 }
 ```
+
+## Fragments
+
+Ability to return arrays, strings, or separate HTML elements in the render method without having to wrap them in a `<div>` object
+
+```javascript
+render() {
+    return (
+        <React.Fragment>
+            <h1>Hello</h1>
+            <h2>World</h2>
+            Welcome to React
+        </React.Fragment>
+    )
+}
+```
