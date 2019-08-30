@@ -94,7 +94,8 @@ New feature in React 16.8 that lets you use state, and other React features with
 import React, { useState } from 'react';
 
 function Counter() {
-  // times is our new state variable and setTimes the function to update that state.
+  // times is our new state variable and use setTimes the function to update that state.
+  // useState sets the initial state of the variable
   const [times, setTimes] = useState(0);
 
   return (
