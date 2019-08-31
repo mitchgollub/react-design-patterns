@@ -103,3 +103,26 @@ const EnhancedProfile = enhance(Profile);
 ### Best Practice: Performance
 
 While the abstraction provided by HoCs make code much more readable and organized, HoCs should be used with caution.  The trade off for using HoCs is in performance.  Wrapping a component into a higher order one adds a new render function, a new life cycle method call, and memory allocation.
+
+## Context
+
+Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.  It provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+HoCs can be used to get the benefits of React Context without coupling our components to the Context API:
+
+```javascript
+const Price = ({ currency, value }) => (
+    <div>{currency}{value}</div>
+);
+Price.propTypes = {
+    currency: string,
+    value: number
+};
+
+// getContext is a wrapper available in Recompose, but you can write a custom wrapper if you want to avoid pulling in the whole library
+const withCurrency = getContext({
+    currency: string
+});
+
+const PriceWithCurrency = withCurrency(Price);
+```
