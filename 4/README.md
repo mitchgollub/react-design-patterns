@@ -126,3 +126,28 @@ const withCurrency = getContext({
 
 const PriceWithCurrency = withCurrency(Price);
 ```
+
+## FunctionAsChild
+
+The main concept of this pattern is that instead of passing a child in the form of a component, we define a function that can receive parameters from the parent.
+
+```javascript
+const FunctionAsChild = ({ children }) => children();
+FunctionAsChild.propTypes = {
+    children: func.isRequired
+};
+
+<FunctionAsChild>
+    {() => <div>Hello, World!</div>}
+</FunctionAsChild>
+```
+
+We can wrap components, passing them variables at runtime rather than fixed properties, as we do with HoCs
+
+```javascript
+<Fetch url="...">
+    {data => <List data={data} />}
+</Fetch>
+```
+
+Since the function receives variables, their names can be decided by the developers who use the component.  The wrapper is highly reusable because it does not make assumptions about the children it receives.  It just expects a function.
