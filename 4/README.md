@@ -39,3 +39,67 @@ The container knows everything about the logic of the component.  The presentati
 ### Best Practice: Maintainability
 
 It is widely used (but not a strict rule) in the React community to append `Container` to the end of the Container component name and give the original name to the presentational one.  
+
+## High Order Components
+
+High order functions are functions that, given a function, enhance it with some extra behaviors, returning a new one.
+
+High order Components are functions that aim to achieve the same pattern over components.
+
+```javascript
+const HoC = Component => EnhancedComponent;
+```
+
+An example would be if you want an attribute to appear on multiple components such as `className`.  You could write an HoC such as the one below:
+
+```javascript
+const withClassName = Component => props => (
+    <Component {...props} className="my-class" />
+);
+```
+
+### Best Practice: Informational
+
+It is common practice to prefix HoCs that provide some information to the components they enhance using the *with* pattern.
+
+### Recompose library
+
+The Recompose library provides many useful HoCs that are small utilities that we can use to wrap our components, moving away from some of their logic.
+
+`flattenProp()`
+
+```javascript
+const Profile = ({ username, age }) => (
+    <div>
+        <div>Username: {username}</div>
+        <div>Age; {age}</div>
+    </div>
+);
+Profile.propTypes = {
+    username: string,
+    age: number
+};
+
+// Usage - wrapping the component with the function
+const withFlattenUser = flattenProp('user');
+const ProfileWithFlattenUser = withFlattenUser(Profile);
+
+// OR
+const ProfileWithFlattenUser = flattenProp('user')(Profile);
+```
+
+`renameProp()`
+
+```javascript
+const enhance = compose(
+    flattenProp('user'),
+    renameProp('username', 'name')
+);
+
+// Combine HoC's (from Recompose or custom) with compose
+const EnhancedProfile = enhance(Profile);
+```
+
+### Best Practice: Performance
+
+While the abstraction provided by HoCs make code much more readable and organized, HoCs should be used with caution.  The trade off for using HoCs is in performance.  Wrapping a component into a higher order one adds a new render function, a new life cycle method call, and memory allocation.
