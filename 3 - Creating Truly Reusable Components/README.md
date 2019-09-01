@@ -1,4 +1,4 @@
-# React Design Patterns
+# 3 - Creating Truly Reusable Components
 
 ## Layouts
 

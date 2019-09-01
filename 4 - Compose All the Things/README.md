@@ -1,4 +1,4 @@
-# React Design Patterns
+# 4 - Compose All the Things
 
 ## Children
 
