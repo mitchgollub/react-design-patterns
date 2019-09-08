@@ -84,3 +84,6 @@ Display.propTypes = {
 
 export default Display
 ```
+
+## Data Fetching
+
