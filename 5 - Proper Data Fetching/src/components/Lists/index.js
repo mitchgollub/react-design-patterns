@@ -13,6 +13,7 @@ List.propTypes = {
     data: array
 };
 
+// Using custom data service
 const withGists = withData(() => `https://api.github.com/users/gaearon/gists`);
 
 export default withGists(List);

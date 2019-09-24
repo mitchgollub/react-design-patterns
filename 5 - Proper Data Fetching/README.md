@@ -10,7 +10,7 @@ This is the ideal pattern, but not all applications are that simple.  Sometimes 
 
 Explore the simple Counter component in this example.  The Counter component is parent to the Buttons and Display components.  The child Button component is designed to update the parent with data using callbacks.  This update informs the parent what data to re-render and sends that information to the proper children to re-render.  
 
-Counter 
+Counter
 
 ```javascript
 export default class Counter extends Component {
@@ -86,4 +86,3 @@ export default Display
 ```
 
 ## Data Fetching
-
