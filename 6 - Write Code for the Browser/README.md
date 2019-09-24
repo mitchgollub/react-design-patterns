@@ -29,3 +29,10 @@ const uncontrolled = () => {
 
 A controlled component is designed to have full control over the value of the fields.
 
+### JSON Schema Forms
+
+Using `react-jsonschema-form` allows us to avoid writing a lot of boilerplate.  This is a library maintained by Mozilla.
+
+`npm i --save react-jsonschema-form`
+
+See [JSONSchemaForm.js](components/JSONSchemaForm.js)
