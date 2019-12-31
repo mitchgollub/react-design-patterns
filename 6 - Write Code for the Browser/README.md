@@ -48,3 +48,10 @@ See [Button.js](src/components/Button.js)
 ### Best Practice: Performance
 
 React uses a single global handler for DOM events from the browser.  This means that we cannot store a synthetic event and reuse it later because it will become `null` right after the initial action.  This design is good for performance, but can pose a problem when trying to store the event for later reference.  React provides a `persist()` method on the synthetic events to make the event persistent for later retrieval.
+
+## Animations
+
+### React Libraries
+
+- `react-addons-css-transistion-group`
+- `react-motion`
