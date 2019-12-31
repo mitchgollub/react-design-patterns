@@ -35,4 +35,16 @@ Using `react-jsonschema-form` allows us to avoid writing a lot of boilerplate.  
 
 `npm i --save react-jsonschema-form`
 
-See [JSONSchemaForm.js](components/JSONSchemaForm.js)
+See [JSONSchemaForm.js](src/components/JSONSchemaForm.js)
+
+## Handling Events
+
+Events work in a slightly different way across various browsers.  React attempts to abstract these differences to give developers a consistent interface.
+
+React acheives this abstract using **synthetic events**.  A **Synthetic Event** is an object that wraps the original event object provided by the browser, and has the same properties no matter where is it created.
+
+See [Button.js](src/components/Button.js)
+
+### Best Practice: Performance
+
+React uses a single global handler for DOM events from the browser.  This means that we cannot store a synthetic event and reuse it later because it will become `null` right after the initial action.  This design is good for performance, but can pose a problem when trying to store the event for later reference.  React provides a `persist()` method on the synthetic events to make the event persistent for later retrieval.
