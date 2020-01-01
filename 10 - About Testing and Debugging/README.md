@@ -4,9 +4,6 @@ In this chapter we'll cover:
 
 - Setting up a Jest environment using Enzyme
 - Testing a component
-- Testing Events
-- React Developer Tools
-- Error Handling
 
 ## Jest and Enzyme
 
